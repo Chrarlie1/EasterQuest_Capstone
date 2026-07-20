@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easter College Interactive Map</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ========================= -->
+        <!-- Sidebar                   -->
+        <!-- ========================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h1>Campus Explorer</h1>
+                <p>Easter College</p>
+            </div>
+
+            <hr>
+
+            <!-- Instructions (Always Visible) -->
+
+            <section class="instructions">
+
+                <h2>How to Play</h2>
+
+                <ol>
+
+                    <li>Click a building marker on the campus map.</li>
+
+                    <li>Read the popup summary.</li>
+
+                    <li>Read the complete building information below.</li>
+
+                    <li>Press <strong>Start Game</strong>.</li>
+
+                    <li>Complete the challenge to unlock the next building.</li>
+
+                </ol>
+
+            </section>
+
+            <hr>
+
+            <!-- Building Information -->
+
+            <section class="building-info">
+
+                <h2 id="buildingTitle">
+
+                    Select a Building
+
+                </h2>
+
+                <img id="buildingImage" src="images/default.jpg" alt="Building Image">
+
+                <p id="buildingDescription">
+
+                    Click one of the markers on the map to learn more about the building.
+
+                </p>
+
+                <div class="completion">
+
+    <h3>Completion Status</h3>
+
+    <div id="statusBadge" class="status incomplete">
+
+        Not Completed
+
+    </div>
+
+</div>
+
+                <button type="button" id="sidebarButton" onclick="startGame()" disabled>
+
+                    Start Game
+
+                </button>
+
+            </section>
+
+        </aside>
+
+        <!-- ========================= -->
+        <!-- Map                       -->
+        <!-- ========================= -->
+
+        <main class="map-section">
+
+            <div class="map-container">
+
+                <img src="images/map.png" alt="Campus Map" class="map">
+
+                <!-- ================= -->
+                <!-- Example Markers   -->
+                <!-- ================= -->
+
+                <button type="button" class="marker marker1" onclick="markerClicked(event,'elementary')">
+
+                    📍
+
+                </button>
+
+                <button type="button" class="marker marker2" onclick="markerClicked(event,'hospitality')">
+
+                    📍
+
+                </button>
+
+                <button type="button" class="marker marker3" onclick="markerClicked(event,'highschool')">
+
+                    📍
+
+                </button>
+
+                <button type="button" class="marker marker4" onclick="markerClicked(event,'college')">
+
+                    📍
+
+                </button>
+
+                <!-- ================= -->
+                <!-- Popup             -->
+                <!-- ================= -->
+
+                <div id="popup" class="popup">
+
+                    <button type="button" class="close-btn" onclick="hidePopup()">
+
+                        ✕
+
+                    </button>
+
+                    <h3 id="popupTitle">
+
+                        Building Name
+
+                    </h3>
+
+                    <p id="popupText">
+
+                        Building description.
+
+                    </p>
+
+                    <button type="button" class="popup-button" onclick="startGame()">
+
+                        Start Game
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
