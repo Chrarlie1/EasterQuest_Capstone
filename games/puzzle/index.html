@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        College Department Puzzle
+
+    </title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="loadingScreen">
+
+        <div class="card">
+
+            <h1>
+
+                🧩 College Department Puzzle
+
+            </h1>
+
+            <p>
+
+                Welcome!
+
+            </p>
+
+            <p>
+
+                Complete three image puzzles to discover interesting
+                facts about the College Department.
+
+            </p>
+
+            <div class="roundList">
+
+                <div>📷 Round 1 • 9 Men</div>
+
+                <div>📷 Round 2 • War</div>
+
+                <div>📷 Round 3 • Rebuilding</div>
+
+            </div>
+
+            <button id="startButton" type="button">
+
+                Start Adventure
+
+            </button>
+            <a href="../../map.php" class="returnButton">
+
+                Return to Map
+
+            </a>
+        </div>
+
+    </div>
+
+    <div id="hud">
+
+        <div class="leftHUD">
+
+            <h2>
+
+                College Department
+
+            </h2>
+
+            <p id="roundText">
+
+                Round 1 / 3
+
+            </p>
+
+        </div>
+
+        <div class="rightHUD">
+
+            <div>
+
+                Time
+
+                <span id="timer">
+
+                    00:00
+
+                </span>
+
+            </div>
+
+            <div>
+
+                Pieces
+
+                <span id="pieces">
+
+                    0 / 0
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="progressContainer">
+
+        <div id="progressBar"></div>
+
+    </div>
+
+    <div id="gameContainer"></div>
+
+    <div id="factPanel">
+
+        <div class="factCard">
+
+            <div class="factImage">
+
+                <img id="factPhoto" src="data:," alt="College Department">
+
+            </div>
+
+            <div class="factContent">
+
+                <h2 id="factTitle">
+
+                    History
+
+                </h2>
+
+                <p id="factDescription">
+
+                </p>
+
+                <div class="factBoxes">
+
+                    <div class="infoBox">
+
+                        <h3>🏛 Historical Background</h3>
+
+                        <p id="historyText"></p>
+
+                    </div>
+
+                    <div class="infoBox">
+
+                        <h3>🎓 Academic Information</h3>
+
+                        <p id="academicText"></p>
+
+                    </div>
+
+                    <div class="infoBox">
+
+                        <h3>💡 Did You Know?</h3>
+
+                        <p id="funFact"></p>
+
+                    </div>
+
+                </div>
+
+                <button id="nextButton" type="button">
+
+                    Continue →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="victoryScreen">
+
+        <div class="card">
+
+            <h1>
+
+                🎉 Congratulations!
+
+            </h1>
+
+            <p>
+
+                You completed all three puzzle rounds.
+
+            </p>
+
+            <p>
+
+                Thank you for learning more about the
+                College Department.
+
+            </p>
+
+            <button id="completeButton" type="button">
+
+                Complete Game
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>

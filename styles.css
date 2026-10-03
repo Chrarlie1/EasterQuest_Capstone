@@ -24,6 +24,7 @@ body{
 
     overflow:hidden;
 
+    padding:10px;
 }
 
 /* =======================================
@@ -69,7 +70,37 @@ body{
     margin:25px 0;
 
 }
+.logout-button{
 
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    background:#DC2626;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    margin-top:20px;
+
+    transition:.25s;
+
+}
+
+.logout-button:hover{
+
+    background:#B91C1C;
+
+}
 /* =======================================
    Logo
 ======================================= */
@@ -266,6 +297,7 @@ body{
 
     background:#111827;
 
+    
 }
 
 .map-container{
@@ -275,6 +307,7 @@ body{
     width:95%;
 
     height:95%;
+    
 
 }
 
@@ -290,7 +323,9 @@ body{
 
     object-fit:contain;
 
-    border-radius:15px;
+
+
+
 
 }
 
@@ -345,15 +380,15 @@ body{
 
 .marker1{
 
-    left:18%;
+    left:16%;
 
-    top:47%;
+    top:49%;
 
 }
 
 .marker2{
 
-    left:66%;
+    left:57%;
 
     top:12%;
 
@@ -361,9 +396,9 @@ body{
 
 .marker3{
 
-    left:70%;
+    left:60%;
 
-    top:30%;
+    top:35%;
 
 }
 
