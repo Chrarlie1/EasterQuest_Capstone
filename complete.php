@@ -1,5 +1,4 @@
 <?php
-
 require_once "auth.php";
 
 /*
@@ -7,12 +6,9 @@ require_once "auth.php";
 | Validate Building ID
 |--------------------------------------------------------------------------
 */
-
 if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
-
     header("Location: map.php");
     exit();
-
 }
 
 $buildingID = (int)$_GET["id"];
@@ -22,58 +18,29 @@ $buildingID = (int)$_GET["id"];
 | Verify Building Exists
 |--------------------------------------------------------------------------
 */
-
-$stmt = $db->prepare("
-
-SELECT id
-
-FROM buildings
-
-WHERE id = ?
-
-LIMIT 1
-
-");
-
+$stmt = $db->prepare("SELECT id FROM buildings WHERE id = ? LIMIT 1");
 $stmt->execute([$buildingID]);
 
-$building = $stmt->fetch();
-
-if (!$building) {
-
+if (!$stmt->fetch()) {
     header("Location: map.php");
     exit();
-
 }
 
 /*
 |--------------------------------------------------------------------------
-| Update Progress
+| Update Progress (Simple UPDATE)
 |--------------------------------------------------------------------------
+| This works perfectly because setup.php and register.php already 
+| guarantee that a row exists for this user and building!
 */
-
 $stmt = $db->prepare("
-
-UPDATE progress
-
-SET completed = 1
-
-WHERE
-
-user_id = ?
-
-AND
-
-building_id = ?
-
+    UPDATE progress 
+    SET completed = 1 
+    WHERE user_id = ? AND building_id = ?
 ");
-
 $stmt->execute([
-
     $userID,
-
     $buildingID
-
 ]);
 
 /*
@@ -81,9 +48,6 @@ $stmt->execute([
 | Redirect Back
 |--------------------------------------------------------------------------
 */
-
 header("Location: map.php");
-
 exit();
-
 ?>
