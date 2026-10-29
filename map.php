@@ -9,30 +9,19 @@ require_once "auth.php";
 */
 
 $stmt = $db->prepare("
-
-SELECT
-
-    buildings.id,
-    buildings.name,
-    buildings.description,
-    buildings.image,
-
-    progress.completed
-
-FROM buildings
-
-LEFT JOIN progress
-
-ON progress.building_id = buildings.id
-
-WHERE progress.user_id = ?
-
-ORDER BY buildings.id
-
+    SELECT 
+        buildings.id, 
+        buildings.name, 
+        buildings.description, 
+        buildings.image, 
+        progress.completed
+    FROM buildings
+    LEFT JOIN progress
+    ON progress.building_id = buildings.id
+    AND progress.user_id = ?
+    ORDER BY buildings.id
 ");
-
 $stmt->execute([$userID]);
-
 $buildings = $stmt->fetchAll();
 
 /*
@@ -163,7 +152,7 @@ foreach ($buildings as $building) {
                     Logout
 
                 </a>
-                
+
             </section>
 
             <hr>
@@ -230,124 +219,32 @@ foreach ($buildings as $building) {
 
         </aside>
 
-        <!-- ====================================== -->
-        <!-- Map -->
-        <!-- ====================================== -->
+<!-- ====================================== -->
+<!-- Map -->
+<!-- ====================================== -->
+<main class="map-section">
+    <div class="map-container">
+        
+        <!-- ✅ NEW: Wrapper for zoomable elements -->
+        <div class="map-content">
+            <img src="images/map.png" class="map" alt="Campus Map">
+            
+            <button type="button" class="marker marker1" onclick="markerClicked(event,'elementarydepartment')">📍</button>
+            <button type="button" class="marker marker2" onclick="markerClicked(event,'departmentofhospitality')">📍</button>
+            <button type="button" class="marker marker3" onclick="markerClicked(event,'highschooldepartment')">📍</button>
+            <button type="button" class="marker marker4" onclick="markerClicked(event,'collegedepartment')">📍</button>
+        </div>
 
-        <main class="map-section">
+        <!-- ✅ Popup stays OUTSIDE map-content so it doesn't zoom -->
+        <div id="popup" class="popup">
+            <button type="button" class="close-btn" onclick="hidePopup()"></button>
+            <h3 id="popupTitle">Building</h3>
+            <p id="popupText">Description</p>
+            <button type="button" class="popup-button" onclick="startGame()">Start Game</button>
+        </div>
 
-            <div class="map-container">
-
-                <img
-
-                    src="images/map.png"
-
-                    class="map"
-
-                    alt="Campus Map">
-
-                <!--
-Marker positions will be adjusted
-to match your actual map.
--->
-
-                <button
-
-                    type="button"
-
-                    class="marker marker1"
-
-                    onclick="markerClicked(event,'elementarydepartment')">
-
-                    📍
-
-                </button>
-
-                <button
-
-                    type="button"
-
-                    class="marker marker2"
-
-                    onclick="markerClicked(event,'departmentofhospitality')">
-
-                    📍
-
-                </button>
-
-                <button
-
-                    type="button"
-
-                    class="marker marker3"
-
-                    onclick="markerClicked(event,'highschooldepartment')">
-
-                    📍
-
-                </button>
-
-                <button
-
-                    type="button"
-
-                    class="marker marker4"
-
-                    onclick="markerClicked(event,'collegedepartment')">
-
-                    📍
-
-                </button>
-
-                <!-- Popup -->
-
-                <div
-
-                    id="popup"
-
-                    class="popup">
-
-                    <button
-
-                        type="button"
-
-                        class="close-btn"
-
-                        onclick="hidePopup()">
-
-                        ✕
-
-                    </button>
-
-                    <h3 id="popupTitle">
-
-                        Building
-
-                    </h3>
-
-                    <p id="popupText">
-
-                        Description
-
-                    </p>
-
-                    <button
-
-                        type="button"
-
-                        class="popup-button"
-
-                        onclick="startGame()">
-
-                        Start Game
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </main>
+    </div>
+</main>
 
     </div>
 

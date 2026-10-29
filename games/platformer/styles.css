@@ -1,0 +1,252 @@
+/* ==========================================================
+   The Rebuilder - Multi-Level Platformer
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --green: #1B5E20;
+    --green-dark: #124218;
+    --orange: #F57C00;
+    --orange-dark: #E65100;
+    --background: #F4F7F2;
+    --white: #FFFFFF;
+    --text: #2C3E2F;
+    --shadow: 0 15px 35px rgba(0, 0, 0, .15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    overflow: hidden;
+}
+
+/* Loading Screen */
+#loadingScreen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #F4F7F2, #E8F5E9);
+    z-index: 1000;
+}
+
+.card {
+    width: 700px;
+    max-width: 90%;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.card h1 {
+    color: var(--green);
+    margin-bottom: 20px;
+}
+
+.card p {
+    margin: 15px 0;
+    line-height: 1.7;
+}
+
+.roundList {
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+    width: 320px;
+}
+
+.roundList div {
+    background: #F8F8F8;
+    border-left: 6px solid var(--orange);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .25s;
+    line-height: 1;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+#startButton, #completeButton {
+    background: var(--orange);
+    color: white;
+}
+
+#startButton:hover, #completeButton:hover {
+    background: var(--orange-dark);
+}
+
+.returnButton {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .25s;
+    line-height: 1;
+    background: var(--green);
+    color: white;
+    text-decoration: none;
+}
+
+.returnButton:hover {
+    background: var(--green-dark);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+#nextButton {
+    background: var(--green);
+    color: white;
+}
+
+#nextButton:hover {
+    background: var(--green-dark);
+}
+
+/* HUD */
+#hud {
+    display: none;
+    height: 80px;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+    padding: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftHUD h2 {
+    color: var(--green);
+}
+
+.rightHUD {
+    display: flex;
+    gap: 40px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* Progress Bar */
+#progressContainer {
+    display: none;
+    width: 100%;
+    height: 8px;
+    background: #DDD;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--green), var(--orange));
+    transition: .4s;
+}
+
+/* Game Area */
+#gameContainer {
+    width: 100vw;
+    height: calc(100vh - 88px);
+    overflow: hidden;
+    position: relative;
+    background: #87CEEB;
+}
+
+/* Fact Popup */
+#factPanel {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    overflow-y: auto;
+    background: rgba(27, 94, 32, 0.95);
+    z-index: 900;
+}
+
+#factPanel .card {
+    width: min(900px, 95vw);
+    margin: auto;
+    animation: pop .35s ease;
+    text-align: left;
+}
+
+#factPanel h1 {
+    color: var(--green);
+}
+
+@keyframes pop {
+    from { transform: scale(.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.factBoxes {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.infoBox {
+    background: #F8F8F8;
+    border-left: 5px solid var(--orange);
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.infoBox h3 {
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+.infoBox p {
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Victory */
+#victoryScreen {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .65);
+    z-index: 1000;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+    #hud {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        padding: 15px;
+    }
+    #gameContainer {
+        height: calc(100vh - 120px);
+    }
+}

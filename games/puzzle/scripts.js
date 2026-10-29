@@ -310,10 +310,12 @@ function victory() {
 ==========================================================*/
 
 function completeGame() {
-
-    window.location.href =
-        "../../complete.php?id=4";
-
+    // Read the ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const buildingId = urlParams.get('id') || 4; // Fallback to 4 just in case
+    
+    // Redirect with the correct ID
+    window.location.href = `../../complete.php?id=${buildingId}`;
 }
 
 /*==========================================================

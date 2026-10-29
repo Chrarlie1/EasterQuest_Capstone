@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rebuilder - Easter College</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+</head>
+<body>
+
+    <!-- Loading / Start Screen -->
+    <div id="loadingScreen">
+        <div class="card">
+            <h1>🏗️ The Rebuilder</h1>
+            <p>Help rebuild Easter College by collecting materials across three historical eras!</p>
+            <div class="roundList">
+                <div>📍 <strong>Level 1:</strong> The Foundation (1906)</div>
+                <div>📍 <strong>Level 2:</strong> The Weaving Room (1909)</div>
+                <div>📍 <strong>Level 3:</strong> Modern Campus (1995-Present)</div>
+            </div>
+            <button type="button" id="startButton">Start Adventure</button>
+            <br><br>
+            <a href="../../map.php" class="returnButton">Return to Map</a>
+        </div>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud">
+        <div class="leftHUD">
+            <h2 id="levelText">Level 1 / 3</h2>
+        </div>
+        <div class="rightHUD">
+            <span>Materials: <strong id="materialsText">0 / 0</strong></span>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
+
+    <!-- Game Area -->
+    <div id="gameContainer"></div>
+
+    <!-- Fact Popup -->
+    <div id="factPanel">
+        <div class="card factCard">
+            <h1 id="factTitle">Level Complete!</h1>
+            <p id="factDescription">Description here.</p>
+            <div class="factBoxes">
+                <div class="infoBox">
+                    <h3>🏛 Historical Background</h3>
+                    <p id="historyText">History here.</p>
+                </div>
+                <div class="infoBox">
+                    <h3>💡 Did You Know?</h3>
+                    <p id="funFact">Fun fact here.</p>
+                </div>
+            </div>
+            <button type="button" id="nextButton">Continue →</button>
+        </div>
+    </div>
+
+    <!-- Victory Screen -->
+    <div id="victoryScreen">
+        <div class="card">
+            <h1>🎉 Campus Fully Rebuilt! 🎉</h1>
+            <p>You have successfully collected all materials and learned the rich history of Easter College!</p>
+            <button type="button" id="completeButton">Complete Game</button>
+            <br><br>
+            <a href="../../map.php" class="returnButton">Return to Map</a>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
