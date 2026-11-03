@@ -1,0 +1,302 @@
+/*==========================================================
+    Campus Explorer
+    Login/Register
+==========================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#7e9e69;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+/*==========================================================
+    Background
+==========================================================*/
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:url("../images/map.png") center center;
+
+    background-size:cover;
+
+    opacity:.18;
+
+    filter:blur(5px);
+
+    transform:scale(1.1);
+
+    z-index:0;
+
+}
+
+/*==========================================================
+    Container
+==========================================================*/
+
+.login-container{
+
+    position:relative;
+
+    z-index:1;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
+/*==========================================================
+    Card
+==========================================================*/
+
+.login-card{
+
+    width:420px;
+
+    background:#153e1b;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.login-card h1{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+    color:white;
+
+    font-size:32px;
+
+}
+
+.login-card p{
+
+    text-align:center;
+
+    color:#CBD5E1;
+
+    margin-bottom:30px;
+
+}
+
+/*==========================================================
+    Labels
+==========================================================*/
+
+label{
+
+    display:block;
+
+    color:white;
+
+    margin-bottom:8px;
+
+    margin-top:15px;
+
+    font-weight:500;
+
+}
+
+/*==========================================================
+    Inputs
+==========================================================*/
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#334155;
+
+    color:white;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+input:focus{
+
+    background:#475569;
+
+    box-shadow:0 0 0 2px #3B82F6;
+
+}
+
+/*==========================================================
+    Button
+==========================================================*/
+
+button{
+
+    width:100%;
+
+    margin-top:30px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563EB;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#1D4ED8;
+
+}
+
+/*==========================================================
+    Messages
+==========================================================*/
+
+.error{
+
+    background:#DC2626;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+}
+
+.success{
+
+    background:#10B981;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+}
+
+/*==========================================================
+    Footer
+==========================================================*/
+
+.footer{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:#CBD5E1;
+
+}
+
+.footer a{
+
+    color:#60A5FA;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.footer a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*==========================================================
+    Responsive
+==========================================================*/
+
+@media(max-width:500px){
+
+.login-card{
+
+    width:100%;
+
+    padding:30px;
+
+}
+
+.login-card h1{
+
+    font-size:28px;
+
+}
+
+}

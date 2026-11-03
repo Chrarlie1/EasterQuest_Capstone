@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Natural Dye Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Loading / Start Screen -->
+    <div id="loadingScreen">
+        <div class="card">
+            <h1>🧵 The Natural Dye Studio</h1>
+            <p>Learn the traditional weaving and dyeing techniques of Easter College!</p>
+            <div class="roundList">
+                <span>📍 <strong>Level 1:</strong> The Foundation (1909)</span>
+                <span>📍 <strong>Level 2:</strong> The Weaving Tradition</span>
+                <span>📍 <strong>Level 3:</strong> Modern Campus</span>
+            </div>
+            <button type="button" id="startButton">Start Adventure</button>
+            <br><br>
+            <a href="../../map.php" class="returnButton">Return to Map</a>
+        </div>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud">
+        <div class="leftHUD">
+            <h2 id="levelText">Level 1 / 3</h2>
+        </div>
+        <div class="rightHUD">
+            <span>Progress: <strong id="progressText">0%</strong></span>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
+
+    <!-- Customer Request -->
+    <section class="customer-request">
+        <span class="customer-avatar">👩‍🏫</span>
+        <div class="request-text">
+            <h2 id="customerName">Deaconess Hargreaves</h2>
+            <p id="requestText">Loading request...</p>
+        </div>
+    </section>
+
+    <!-- Main Game Area -->
+    <main class="game-board">
+        <!-- Left: Ingredients -->
+        <aside class="ingredients-panel">
+            <h3>Natural Ingredients</h3>
+            <div class="ingredient-grid">
+                <button type="button" class="ingredient" data-color="blue" data-name="Indigo Leaves" aria-label="Drag Indigo Leaves to the vat">
+                    <span class="ingredient-icon indigo"></span>
+                    <span>Indigo Leaves</span>
+                </button>
+                <button type="button" class="ingredient" data-color="yellow" data-name="Yellow Bark" aria-label="Drag Yellow Bark to the vat">
+                    <span class="ingredient-icon yellow"></span>
+                    <span>Yellow Bark</span>
+                </button>
+                <button type="button" class="ingredient" data-color="red" data-name="Red Roots" aria-label="Drag Red Roots to the vat">
+                    <span class="ingredient-icon red"></span>
+                    <span>Red Roots</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Center: Dye Vat -->
+        <section class="vat-area">
+            <h3>Dye Vat</h3>
+            <section class="vat" id="dyeVat" aria-label="Drop ingredients here to mix dye">
+                <span class="vat-liquid" id="vatLiquid"></span>
+                <span class="vat-label">Drop ingredients here</span>
+            </section>
+            <div class="vat-controls">
+                <button type="button" id="resetVatBtn" aria-label="Reset the dye vat">Empty Vat</button>
+                <button type="button" id="dipClothBtn" aria-label="Dip the cloth into the dye">Dip Cloth!</button>
+            </div>
+        </section>
+
+        <!-- Right: Cloth -->
+        <section class="cloth-area">
+            <h3>Your Fabric</h3>
+            <section class="cloth" id="fabricCloth" aria-label="The fabric you are dyeing">
+                <span class="cloth-pattern" id="clothPattern"></span>
+            </section>
+        </section>
+    </main>
+
+    <!-- Bottom: Pattern Stamps (Hidden until color is correct) -->
+    <section class="patterns-panel" id="patternsPanel">
+        <h3>Traditional Pattern Stamps</h3>
+        <div class="pattern-grid">
+            <button type="button" class="pattern-stamp" data-pattern="zigzag" aria-label="Drag Mountain Zigzag pattern to the cloth">
+                <span class="stamp-preview zigzag"></span>
+                <span>Mountain Zigzag</span>
+            </button>
+            <button type="button" class="pattern-stamp" data-pattern="diamond" aria-label="Drag Diamond pattern to the cloth">
+                <span class="stamp-preview diamond"></span>
+                <span>Diamond</span>
+            </button>
+            <button type="button" class="pattern-stamp" data-pattern="river" aria-label="Drag River pattern to the cloth">
+                <span class="stamp-preview river"></span>
+                <span>River Flow</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Fact Popup -->
+    <div id="factPanel">
+        <div class="card factCard">
+            <button type="button" class="close-modal" id="closeModal" aria-label="Close modal">✕</button>
+            <h1 id="factTitle">Level Complete!</h1>
+            <p id="factDescription">Description here.</p>
+            <div class="factBoxes">
+                <section class="infoBox">
+                    <h3>🏛 Historical Background</h3>
+                    <p id="historyText">History here.</p>
+                </section>
+                <section class="infoBox">
+                    <h3>💡 Did You Know?</h3>
+                    <p id="funFact">Fun fact here.</p>
+                </section>
+            </div>
+            <button type="button" id="nextButton">Continue →</button>
+        </div>
+    </div>
+
+    <!-- Victory Screen -->
+    <div id="victoryScreen">
+        <div class="card">
+            <h1>🎉 Master Weaver! 🎉</h1>
+            <p>You have completed all the orders and learned the secrets of the Easter Weaving Room!</p>
+            <button type="button" id="completeButton">Complete Game</button>
+            <br><br>
+            <a href="../../map.php" class="returnButton">Return to Map</a>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
